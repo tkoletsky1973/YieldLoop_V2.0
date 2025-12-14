@@ -2070,3 +2070,158 @@ The period between cycles during which users may withdraw funds, compound balanc
 
 **Zero-Profit Cycle**  
 A cycle that ends with no verified profit and therefore results in no LOOP issuance and no platform fees.
+
+
+## 25. Regulatory, Risk, and Adversarial Review Disclosures
+
+This section is provided to address foreseeable regulatory, legal, political, competitive, and consumer-protection concerns. It is intended to clarify the design intent, operating boundaries, and explicit limitations of the YieldLoop protocol. Nothing in this section modifies the canonical rules defined above.
+
+---
+
+### 25.1 No Managerial Reliance or Profit Expectation
+
+YieldLoop does not promise, market, or imply profit.
+
+- The protocol does not manage portfolios
+- The protocol does not optimize outcomes
+- The protocol does not intervene to improve results
+- AI-guided configuration is rules-based and static per cycle
+
+All strategy execution occurs strictly according to parameters authorized by the user prior to cycle start. Users are not relying on the discretionary efforts of YieldLoop operators, developers, or administrators to generate profit.
+
+YieldLoop executes instructions and reports outcomes; it does not manage investments.
+
+---
+
+### 25.2 LOOP Is a Settlement Instrument, Not an Investment Asset
+
+LOOP is an internal settlement and accounting token used solely to represent verified net surplus from completed cycles.
+
+LOOP:
+- Is not sold or marketed
+- Is not pre-minted
+- Is not emitted on a schedule
+- Does not confer governance rights
+- Does not represent a claim on future profits
+- Does not promise appreciation
+
+LOOP exists only after profit has already been realized and only to facilitate deterministic settlement and redemption of that surplus.
+
+---
+
+### 25.3 No Price Support or Market Intervention
+
+YieldLoop does not defend, target, or manage the secondary market price of LOOP.
+
+- The redemption floor is a settlement mechanism, not a price peg
+- No intervention occurs to maintain market price above the floor
+- The protocol does not engage in price stabilization activities
+
+Market price behavior, if any, is independent of protocol guarantees.
+
+---
+
+### 25.4 Non-Custodial, Non-Banking Design
+
+YieldLoop is not a bank, savings account, payment service, or custodial platform.
+
+- User funds remain in user-owned smart contract vaults
+- The protocol cannot seize or redirect assets
+- There is no deposit insurance
+- There are no guaranteed withdrawals outside defined rules
+
+YieldLoop does not accept deposits in a custodial capacity and does not perform maturity transformation or credit creation.
+
+---
+
+### 25.5 Fee-for-Execution, Not Yield Provision
+
+The protocol earns revenue only through a predefined performance fee applied to verified profit.
+
+- No fees are charged during flat or losing cycles
+- No fees are charged on idle capital
+- No fees are charged independent of outcomes
+
+YieldLoop is compensated for execution and settlement infrastructure, not for producing returns.
+
+---
+
+### 25.6 Consumer Risk Disclosure (Plain Language)
+
+By using YieldLoop, users acknowledge that:
+
+- Funds are locked for the duration of each cycle
+- Cycles may end with zero profit
+- Gas and execution costs may exceed returns
+- No mid-cycle withdrawals are permitted
+- LOOP may be redeemed only against existing backing
+- Losses are possible and not reimbursed
+
+Disclosure does not eliminate risk. Users are responsible for understanding and accepting these conditions.
+
+---
+
+### 25.7 Jurisdictional Responsibility
+
+YieldLoop is a globally accessible protocol. Regulatory treatment of digital assets varies by jurisdiction.
+
+Users are responsible for:
+- Determining eligibility to use the protocol
+- Complying with applicable laws and tax obligations
+- Understanding restrictions that may apply in their jurisdiction
+
+YieldLoop does not solicit participation from prohibited jurisdictions and does not provide legal or tax advice.
+
+---
+
+### 25.8 Capital Efficiency and Design Tradeoffs
+
+YieldLoop intentionally prioritizes:
+- Verifiable outcomes over projected APY
+- Capital safety over yield maximization
+- Determinism over flexibility
+
+As a result:
+- YieldLoop may underperform speculative strategies in bull markets
+- Capital efficiency may be lower than high-risk alternatives
+- Flat cycles are expected and acceptable outcomes
+
+These tradeoffs are deliberate and central to the protocol’s design.
+
+---
+
+### 25.9 Overcollateralization and System Sustainability
+
+YieldLoop may manage excess overcollateralization through rule-based redeployment into protocol-owned system deposits.
+
+- Excess backing is never distributed to users
+- Excess backing is never withdrawn from the ecosystem
+- Redeployment preserves minimum redemption guarantees
+
+This mechanism exists to prevent inefficient accumulation of idle capital while maintaining solvency and floor integrity.
+
+---
+
+### 25.10 What YieldLoop Is Not
+
+YieldLoop is not:
+- An investment fund
+- A managed portfolio
+- A savings product
+- A stablecoin issuer
+- A guarantee mechanism
+- A substitute for financial advice
+
+YieldLoop is execution and settlement infrastructure governed by deterministic rules.
+
+---
+
+### 25.11 Disclosure Philosophy
+
+YieldLoop favors explicit disclosure over optimistic framing.
+
+If profit cannot be verified, it is not reported.  
+If risk exists, it is disclosed.  
+If uncertainty remains, it is not concealed.
+
+Participation in YieldLoop constitutes informed, voluntary use of non-custodial financial infrastructure.
