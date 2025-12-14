@@ -483,55 +483,59 @@ Profit determination occurs exclusively at the protocol level during cycle settl
 This separation ensures that strategy execution and profit recognition remain strictly decoupled.
 
 
-## 9. Engine Configuration, Controls & AI Operation
+## 9. Engine Configuration, Controls & Guardrail Operation
 
-YieldLoop allows users to configure yield and trading engines either manually or through an AI-guided configuration system. Regardless of configuration method, all strategy parameters must be explicitly authorized by the user prior to deposit and are enforced immutably for the duration of each cycle.
+YieldLoop allows users to configure yield and trading engines either manually or through an optional guardrail configuration system. Regardless of configuration method, all strategy parameters must be explicitly authorized by the user prior to deposit and are enforced immutably for the duration of each cycle.
 
-The configuration layer determines *how* engines operate, but it does not alter ownership, settlement rules, or profit verification logic.
+The configuration layer determines how engines operate, but it does not alter vault ownership, settlement rules, profit verification logic, or withdrawal constraints.
 
 ---
 
 ### 9.1 Manual Configuration
 
-Users who choose manual configuration may select:
-- Which engines are enabled
-- Capital allocation across engines
-- Engine-specific parameters such as grid spacing, range bounds, or allocation limits
+Users may manually select:
+- Which strategy engines are enabled
+- Capital allocation across enabled engines
+- Engine-specific parameters such as allocation limits, range bounds, or execution constraints
 
-Manual configuration requires the user to explicitly acknowledge:
-- Strategy behavior
-- Risk characteristics
+Manual configuration requires explicit acknowledgment of:
+- Strategy behavior and risk characteristics
 - Gas and execution cost responsibility
-- Withdrawal constraints
+- Locked-cycle constraints
+- Settlement and fee mechanics
 
-Once a cycle begins, manual settings are locked and cannot be modified until the cycle completes.
+Once a cycle begins, all manual configuration settings are locked and cannot be modified until the cycle completes.
 
 ---
 
-### 9.2 AI-Guided Configuration
+### 9.2 Guardrail Configuration (Rules-Based)
 
-Users may alternatively select AI-guided configuration. In this mode, the system automatically selects and configures engines using conservative, safety-first parameters based on current market conditions.
+YieldLoop offers an optional guardrail configuration mode that assists users in selecting conservative, safety-constrained strategy parameters prior to cycle initiation.
 
-AI-guided configuration:
-- Prioritizes capital preservation
-- Uses bounded exposure limits
-- Avoids aggressive parameterization
-- Does not assume directional market outcomes
+Guardrail configuration:
+- Operates only before a cycle begins
+- Selects parameters exclusively from predefined, governance-approved rule sets
+- Enforces conservative allocation limits and execution boundaries
+- Does not predict market behavior
+- Does not optimize for profit
+- Does not adapt, learn, or reconfigure during an active cycle
+- Does not influence settlement outcomes
 
-The AI does not take custody of funds, does not override protocol rules, and does not adjust parameters mid-cycle.
+Guardrail configuration exists solely to reduce configuration complexity and enforce safety boundaries. It does not exercise discretion, managerial judgment, or outcome optimization.
+
+Users explicitly authorize guardrail configuration and retain full responsibility for participation, configuration choice, and outcomes.
 
 ---
 
 ### 9.3 User Authorization & Acknowledgment
 
-Whether configuration is manual or AI-guided, users must explicitly authorize:
+Whether configuration is manual or guardrail-based, users must explicitly authorize:
 - Selected engines and parameters
-- AI control (if applicable)
-- Gas fee responsibility
+- Gas and execution cost responsibility
 - Locked-cycle constraints
 - Settlement and reward mechanics
 
-Authorization is required at deposit time and is recorded on-chain or through verifiable transaction signatures.
+Authorization occurs prior to deposit and is recorded through verifiable on-chain transactions or equivalent cryptographic signatures.
 
 ---
 
@@ -539,44 +543,29 @@ Authorization is required at deposit time and is recorded on-chain or through ve
 
 At cycle start:
 - All engine parameters are frozen
-- AI control cannot reconfigure settings
-- Administrative roles cannot alter execution parameters
+- No configuration changes are permitted
+- No automated or administrative process may alter execution settings
 
-This immutability ensures that:
-- Strategies operate under known conditions
-- Accounting remains deterministic
-- Settlement outcomes are non-discretionary
+This immutability ensures deterministic accounting, auditability, and non-discretionary settlement.
 
 ---
 
-### 9.5 Safety Constraints & Fallbacks
+### 9.5 Safety Constraints & Fallback Behavior
 
-All configurations, whether manual or AI-generated, are subject to protocol-enforced safety constraints, including:
-- Maximum allocation limits
-- Engine-specific risk caps
-- Capital exposure boundaries
+All configurations are subject to protocol-enforced safety constraints, including:
+- Maximum capital allocation limits
+- Engine-specific risk boundaries
+- Exposure caps
 
-If an engine cannot operate safely within its configured parameters, execution halts for that engine and capital remains idle or is returned to a base asset within the vault.
-
----
-
-### 9.6 AI Limitations & Transparency
-
-The AI system:
-- Does not guarantee profit
-- Does not predict markets
-- Does not adjust strategies mid-cycle
-- Does not influence settlement outcomes
-
-Its role is limited to pre-cycle configuration using predefined rules and historical context. All AI decisions are subject to the same constraints as manual configurations and are fully subordinate to protocol logic.
+If a strategy engine cannot operate safely within its authorized parameters, execution halts for that engine and capital remains idle or reverts to base assets within the vault.
 
 ---
 
-### 9.7 Accountability
+### 9.6 Accountability
 
-All configuration decisions ultimately remain the responsibility of the user. YieldLoop provides tools for configuration and automation but does not assume fiduciary responsibility for outcomes.
+All configuration decisions remain the responsibility of the user.
 
-The protocol’s obligation is limited to executing authorized strategies, verifying results, and settling outcomes according to predefined rules.
+YieldLoop provides execution and settlement infrastructure only and does not assume fiduciary responsibility, advisory duty, or managerial control over user capital.
 
 
 ## 10. Cycle-Based Execution Model
@@ -846,14 +835,13 @@ Redemption does not rely on secondary market liquidity and does not require wait
 
 ### 12.5 Floor Integrity
 
-The redemption floor of LOOP is defined by the underlying backing held by the protocol.
+The LOOP redemption floor reflects the amount of underlying backing held by the protocol at the time of redemption.
 
-Protocol-owned liquidity and surplus routing mechanisms ensure that:
-- The redemption floor cannot decrease
-- Excess backing may increase the floor over time
-- Market price may exceed the floor but cannot undercut it via redemption
+The redemption floor is designed to be non-decreasing under normal operating conditions, subject to smart contract risk, systemic failure, or external infrastructure disruption.
 
-LOOP does not support negative rebasing or dilution.
+YieldLoop does not guarantee redemption outcomes under all circumstances and does not intervene in secondary markets to influence price behavior. Redemption availability is a settlement mechanism based on existing backing and does not constitute a price guarantee, yield promise, or market support activity.
+
+Any increase in the redemption floor results solely from realized surplus that has already been generated, verified, and settled according to protocol rules.
 
 ---
 
@@ -905,34 +893,133 @@ There is no fixed maximum supply and no inflation outside of verified surplus ge
 
 ## 13. Fee Structure & Allocation
 
-YieldLoop applies performance fees only to verified profit generated during completed cycles. No fees are charged on principal, and no fees are charged during cycles that produce zero profit.
+YieldLoop applies a performance-based fee model designed to align protocol revenue with verified economic surplus while avoiding fees on losses, idle capital, or unrealized outcomes.
 
-The fee model is designed to align protocol incentives with real economic surplus while maintaining transparency and predictability.
-
----
-
-### 13.1 Platform Fee Overview
-
-The platform performance fee is set at **25% of verified gross profit**.
-
-This fee is applied only after a cycle has completed and profit has been objectively verified. If no profit exists, the platform fee is zero.
-
-Users retain **75% of net verified profit**.
+Fees are applied deterministically, disclosed in advance, and enforced exclusively through protocol logic. There are no discretionary charges.
 
 ---
 
-### 13.2 Fee Calculation
+### 13.1 Platform Performance Fee
 
-When verified profit exists, the fee is calculated as:
+The platform performance fee is set at **20% of verified gross profit**.
 
+The performance fee:
+- Applies **only** when verified profit exists
+- Is calculated **after** all execution costs, gas fees, slippage, and losses are reflected
+- Is **never** charged on principal
+- Is **never** charged during flat or losing cycles
+- Is applied **only at cycle completion**, never mid-cycle
+
+If a cycle produces zero verified profit, the performance fee is zero.
+
+---
+
+### 13.2 Fee Calculation Method
+
+When a cycle completes with verified profit, the protocol calculates:
+
+- **Gross Profit**  
+  Ending Vault Value − Starting Vault Value
+
+- **Platform Fee**  
+  20% × Gross Profit
+
+- **Net Profit**  
+  Gross Profit − Platform Fee
+
+Only net profit is eligible for settlement and LOOP issuance.
+
+All calculations are deterministic and reproducible from on-chain data.
+
+---
+
+### 13.3 Fee Timing & Settlement
+
+Fees are applied **only after**:
+- The cycle has fully completed
+- All strategy execution has halted
+- Final vault balances have been reported
+- Verified profit has been objectively determined
+
+No fees are assessed prior to settlement, and no fees are charged retroactively.
+
+---
+
+### 13.4 Fee Scope & Limitations
+
+YieldLoop does not charge:
+- Management fees
+- Deposit fees
+- Withdrawal fees
+- Fees on idle or unallocated capital
+- Fees on losses or unrealized gains
+
+The protocol earns revenue solely from performance fees applied to verified profit.
+
+---
+
+### 13.5 Fee Purpose & Disclosure
+
+The performance fee compensates the protocol for:
+- Strategy execution infrastructure
+- Cycle-based accounting and verification
+- Settlement and redemption mechanisms
+- Ongoing maintenance of non-custodial protocol systems
+
+The performance fee does **not**:
+- Guarantee profit
+- Imply expected returns
+- Create fiduciary responsibility
+- Represent discretionary asset management
+
+All fee parameters are disclosed prior to participation and are acknowledged explicitly by users before deposit.
+
+---
+
+### 13.6 Fee Transparency & Auditability
+
+All fee calculations:
+- Are executed through deterministic smart contract logic
+- Are observable on-chain
+- Can be independently verified by third parties
+
+No hidden fees, adjustments, or discretionary overrides exist.
+
+---
+
+### 13.7 Design Rationale
+
+YieldLoop intentionally employs a performance-only fee model to:
+- Align protocol incentives with user outcomes
+- Avoid charging users during unfavorable market conditions
+- Preserve transparency and trust
+- Prevent fee extraction unrelated to verified surplus
+
+This structure prioritizes long-term protocol sustainability without obscuring risk or inflating reported performance.
+
+
+## 14. Floor Reinforcement & Liquidity Design
+
+YieldLoop includes structural mechanisms intended to reinforce the availability of LOOP redemption backing over time without introducing discretionary control, price targeting, or market intervention.
+
+These mechanisms operate only through deterministic, rule-based processes and apply exclusively to protocol-owned assets. They do not guarantee market price behavior, future value, or redemption outcomes under all conditions.
+
+Floor reinforcement reflects settlement discipline and surplus routing, not price support or financial guarantees.
+
+---
 
 ### 14A. Overcollateralization Management
 
-YieldLoop is designed to maintain excess backing for LOOP at all times; however, unlimited accumulation of idle backing is neither capital-efficient nor desirable over long time horizons.
+### 14A.0 Settlement Priority and Redeployment Constraint
 
-To address this, the protocol includes a controlled overcollateralization management mechanism that allows excess backing to be redeployed into productive system deposits without compromising redemption integrity.
+Under no circumstances may overcollateralization management or system-level redeployment occur unless all user settlement obligations and minimum LOOP redemption backing requirements are fully satisfied.
 
----
+Specifically:
+- User principal and user profit are settled in full prior to any redeployment activity
+- Assets required to satisfy all outstanding LOOP redemption rights are preserved at all times
+- Redeployment applies exclusively to protocol-owned assets in excess of required settlement and redemption thresholds
+
+Overcollateralization redeployment is a post-settlement, system-level capital efficiency mechanism and does not involve user funds, user rewards, or assets required to satisfy redemption guarantees.
 
 ### 14A.1 Purpose
 
@@ -1286,7 +1373,6 @@ Users may request full account closure at any time during an active cycle; howev
 Account closure:
 - Settles all vault balances
 - Applies performance fees to any rewards
-- Applies a **0.5% account closing fee** for support and transfer
 - Deactivates the vault permanently
 
 Closure requests must be submitted through the defined support channel and are processed deterministically at cycle end.
@@ -1781,6 +1867,8 @@ Users are responsible for:
 - Determining eligibility to use the protocol
 
 YieldLoop does not enforce jurisdictional access controls by default.
+
+As a U.S.-based entity, YieldLoop’s user interface may implement sanctions screening consistent with applicable Office of Foreign Assets Control (OFAC) lists and may restrict access from prohibited jurisdictions or sanctioned persons at the application layer. Such measures do not alter the non-custodial nature of the protocol or the neutrality of the underlying smart contracts.
 
 ---
 
