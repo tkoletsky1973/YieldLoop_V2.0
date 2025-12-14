@@ -96,6 +96,21 @@ This approach enables:
 
 YieldLoop operates through a set of non-custodial, account-segmented vaults controlled by user wallets. Each vault is configured with one or more yield or trading engines and participates in a fixed calendar-month execution cycle.
 
+### Protocol Classification: Verified Settlement Protocol (VSP)
+
+YieldLoop operates as a **non-custodial Verified Settlement Protocol (VSP)**.
+
+A Verified Settlement Protocol is a category of financial infrastructure that:
+- Executes user-authorized strategies within fixed accounting windows
+- Enforces deterministic, cycle-based execution boundaries
+- Verifies whether real economic surplus exists only after execution concludes
+- Settles outcomes exclusively at defined settlement points
+- Refuses to recognize or distribute profit prior to settlement finality
+
+A VSP does not project yield, manage assets, optimize outcomes, or recognize unrealized gains. Its function is not to generate returns, but to **verify and settle outcomes with accounting integrity**.
+
+YieldLoop’s architecture, fee model, and token mechanics are intentionally designed to operate as settlement infrastructure rather than as an investment product, trading platform, or asset management system.
+
 At the start of a cycle, a user:
 - Connects a wallet
 - Configures strategies manually or selects AI-guided safe settings
