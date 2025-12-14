@@ -2225,3 +2225,173 @@ If risk exists, it is disclosed.
 If uncertainty remains, it is not concealed.
 
 Participation in YieldLoop constitutes informed, voluntary use of non-custodial financial infrastructure.
+
+
+# 26. Structural Clarifications, Adversarial Risk Mitigations, and Design Safeguards
+
+This section is provided to explicitly address foreseeable regulatory, legal, political, competitive, and consumer-protection concerns that may arise from hostile or adversarial review of the YieldLoop protocol. Nothing in this section modifies, overrides, or expands the canonical rules defined elsewhere in this document. Its purpose is clarification, not redefinition.
+
+---
+
+## 26.1 YieldLoop Is Execution and Settlement Infrastructure, Not Asset Management
+
+YieldLoop operates exclusively as non-custodial execution and settlement infrastructure.
+
+The protocol:
+- Executes user-authorized strategy logic
+- Verifies objective outcomes at fixed cycle boundaries
+- Settles results deterministically according to predefined rules
+
+The protocol does **not**:
+- Manage portfolios
+- Select investments on behalf of users
+- Adjust strategies during execution
+- Intervene to improve outcomes
+- Exercise discretionary judgment over user capital
+
+All strategy parameters are explicitly authorized by the user prior to cycle initiation and are immutable for the duration of the cycle. Responsibility for participation, configuration choices, and risk exposure remains solely with the user.
+
+---
+
+## 26.2 AI-Guided Configuration Does Not Create Managerial Reliance
+
+Any references to “AI” within YieldLoop refer strictly to **pre-cycle, rules-based configuration assistance**.
+
+AI-guided configuration:
+- Operates only before a cycle begins
+- Selects parameters from predefined, governance-approved rule sets
+- Does not predict markets
+- Does not optimize for profit
+- Does not adapt or reconfigure mid-cycle
+- Does not influence settlement outcomes
+
+AI components exist solely to reduce user configuration complexity. They do not introduce discretion, managerial control, or outcome dependency. Users explicitly authorize AI-guided configuration and retain full responsibility for its use.
+
+---
+
+## 26.3 Locked Cycles Exist for Accounting Integrity, Not Capital Control
+
+Cycle-based fund locking exists exclusively to preserve deterministic accounting, prevent selective exits, and ensure verifiable profit measurement.
+
+Locking:
+- Is disclosed prior to deposit
+- Is authorized explicitly by the user
+- Applies uniformly to all vaults
+- Cannot be altered by administrators or AI systems
+
+Locked cycles do **not**:
+- Enable discretionary fund control
+- Permit protocol intervention
+- Create custodial authority
+- Guarantee outcomes
+
+Funds remain in user-owned vaults at all times, subject only to the execution rules authorized by the user.
+
+---
+
+## 26.4 LOOP Is a Settlement Instrument, Not an Investment or Price-Supported Asset
+
+LOOP functions solely as an internal settlement and accounting instrument representing verified net surplus from completed cycles.
+
+LOOP:
+- Is minted only after profit has already been realized
+- Is fully backed by existing underlying assets
+- Is redeemable immediately through deterministic settlement logic
+- Does not confer governance rights
+- Does not represent a claim on future profits
+- Does not promise appreciation
+
+The redemption mechanism exists to settle verified outcomes, not to support market prices. YieldLoop does not defend, target, stabilize, or intervene in secondary market pricing of LOOP.
+
+---
+
+## 26.5 Redemption Floor Is Accounting Infrastructure, Not a Price Guarantee
+
+The redemption floor reflects existing backing held by the protocol at the time of redemption.
+
+The protocol does not:
+- Guarantee market value
+- Support trading liquidity
+- Intervene in price discovery
+- Provide downside protection beyond existing backing
+
+Redemption availability is a function of settlement finality, not a promise of future value or performance.
+
+---
+
+## 26.6 Overcollateralization Management Does Not Involve User Capital
+
+Any overcollateralization management mechanisms apply **exclusively to protocol-owned assets** derived from realized fees or surplus after user settlement is complete.
+
+The protocol never:
+- Redeploys user principal
+- Redeploys user profit
+- Redeploys assets backing user-issued LOOP below required thresholds
+- Rehypothecates user capital
+
+User balances and settlement outcomes are finalized prior to any system-level redeployment activity. Overcollateralization management exists solely to prevent inefficient accumulation of idle protocol-owned capital while preserving redemption guarantees.
+
+---
+
+## 26.7 Fee Structure Reflects Execution Services, Not Outcome Promises
+
+YieldLoop earns revenue only through a predefined performance fee applied **exclusively** to verified profit.
+
+The protocol does not:
+- Charge fees on losses
+- Charge fees on idle capital
+- Charge fees independent of outcomes
+- Guarantee positive results
+
+Fees compensate the protocol for execution, verification, and settlement infrastructure, not for producing returns.
+
+---
+
+## 26.8 Accessibility Does Not Imply Suitability or Jurisdictional Clearance
+
+YieldLoop is a general-purpose protocol and does not assess:
+- User sophistication
+- Risk tolerance
+- Legal eligibility
+- Jurisdictional compliance
+
+Users are solely responsible for determining whether participation is lawful and appropriate in their jurisdiction. YieldLoop does not provide legal, tax, or regulatory advice.
+
+---
+
+## 26.9 Exit Fees Are Operational, Not Restrictive
+
+Any account closure or support-related fees exist solely to:
+- Cover deterministic processing costs
+- Prevent abusive automation
+- Maintain operational integrity
+
+Such fees are:
+- Disclosed in advance
+- Fixed and transparent
+- Independent of performance outcomes
+- Not designed to restrict access to user funds
+
+---
+
+## 26.10 Disclosure Supersedes Marketing
+
+YieldLoop explicitly favors disclosure over promotion.
+
+If profit cannot be verified, it is not reported.  
+If risk exists, it is disclosed.  
+If uncertainty remains, it is not concealed.
+
+Participation in YieldLoop constitutes informed, voluntary use of non-custodial execution and settlement infrastructure operating under deterministic, verifiable rules.
+
+---
+
+### Design Intent Statement
+
+YieldLoop is intentionally conservative by design. It prioritizes:
+- Verifiable outcomes over projected yield
+- Capital integrity over flexibility
+- Determinism over discretion
+- Transparency over optimization narratives
+
+These choices are deliberate and define the protocol’s identity.
