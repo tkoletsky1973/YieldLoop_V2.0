@@ -16,7 +16,7 @@ Unlike traditional DeFi platforms that rely on projected APYs, emissions, or con
 
 When profit exists, it is settled at the end of the cycle and distributed to users in the form of LOOP, a platform-native settlement token that is minted only after profit is verified and is immediately redeemable for underlying value. When no profit exists, no rewards are issued and no performance fees are taken.
 
-YieldLoop is designed to be transparent, auditable, and resistant to misleading yield representations, while reinforcing long-term protocol value through a permanently rising redemption floor.
+YieldLoop is designed to be transparent, auditable, and resistant to misleading yield representations, while reinforcing long-term protocol value through a non-eroding redemption floor based on verified settlement outcomes.
 
 ---
 
@@ -144,7 +144,10 @@ This ensures that results are reproducible, auditable, and resistant to manipula
 
 ### 5.8 Floor Integrity
 
-The system is designed so that the redemption floor of LOOP can only remain constant or increase over time. Protocol-owned liquidity, overcollateralized backing, and surplus routing mechanisms prevent floor erosion and eliminate death-spiral dynamics.
+### 5.8 Non-Eroding Redemption Floor
+
+YieldLoop maintains a non-eroding redemption floor that reflects verified settlement backing available at the conclusion of completed execution cycles.
+The non-eroding redemption floor is an accounting property of settled surplus and backing discipline. It does not represent a guarantee of appreciation, a target value, or a promise of future economic gain. The redemption floor may remain static for extended periods and is subject to execution outcomes, settlement verification, and protocol-defined constraints.. Protocol-owned liquidity, overcollateralized backing, and surplus routing mechanisms prevent floor erosion and eliminate death-spiral dynamics.
 
 YieldLoop does not optimize for short-term upside at the expense of long-term solvency.
 
@@ -423,6 +426,12 @@ These engines serve as:
 - Baseline yield generators when other engines are constrained
 
 Stablecoin engines prioritize solvency and liquidity over yield maximization.
+
+Stablecoin-based strategies utilized within YieldLoop are selected and configured to align with applicable asset quality and reserve principles reflected in federal stablecoin regulatory frameworks, including the GENIUS Act.
+
+These strategies are execution-based and non-advisory in nature. Outcomes are not guaranteed and may result in zero verified profit for a given cycle due to market conditions, liquidity constraints, execution costs, counterparty risk, or external protocol behavior.
+
+Participation in stablecoin strategies does not constitute interest-bearing activity, lending, or yield-bearing issuance by YieldLoop. All results are contingent on completed execution and post-cycle verification.
 
 ---
 
@@ -1933,18 +1942,20 @@ YieldLoop reports outcomes; it does not manufacture them.
 
 ---
 
-### 21.3 LOOP Classification Intent
+### 21.3 LOOP Token Classification and Non-Stablecoin Status
 
-LOOP is designed as a **settlement and accounting token**, not an investment vehicle.
+LOOP is a settlement token issued solely to represent verified surplus that has already been realized, measured, and settled at the conclusion of an execution cycle.
 
-LOOP:
-- Is minted only after verified profit
-- Represents realized surplus, not future expectation
-- Is fully backed and redeemable
-- Does not confer governance rights
-- Does not promise appreciation
+Although LOOP maintains 1:1 or greater backing at the time of issuance, LOOP is **not a stablecoin** under GENIUS Act definitions or similar regulatory frameworks. LOOP does not function as a pegged currency, unit of account, or medium of exchange intended to maintain price stability against a reference asset.
 
-Its purpose is to settle completed cycles, not to raise capital or incentivize speculation.
+Key distinctions include:
+- LOOP is issued only after surplus exists; it is not pre-minted or advance-issued
+- LOOP does not pay interest, yield, or rewards to holders
+- LOOP does not represent a claim on future profits, protocol revenue, or ongoing returns
+- LOOP issuance is tied to cycle-specific settlement outcomes, not continuous circulation
+- LOOP is redeemable within the protocol as a settlement receipt, not as a currency substitute
+
+LOOP’s backing reflects completed accounting outcomes and does not constitute a promise of price stability, market value maintenance, or future redemption beyond existing backing at the time of settlement.
 
 ---
 
@@ -1997,6 +2008,10 @@ YieldLoop does not enforce jurisdictional access controls by default.
 
 As a U.S.-based entity, YieldLoop’s user interface may implement sanctions screening consistent with applicable Office of Foreign Assets Control (OFAC) lists and may restrict access from prohibited jurisdictions or sanctioned persons at the application layer. Such measures do not alter the non-custodial nature of the protocol or the neutrality of the underlying smart contracts.
 
+YieldLoop implements application-layer compliance controls where required, including sanctions screening consistent with Office of Foreign Assets Control (OFAC) requirements. Access to user interfaces or features may be restricted based on jurisdictional considerations or applicable law.
+
+YieldLoop does not perform custodial identity verification by default; however, users are responsible for ensuring their participation complies with applicable AML, KYC, and sanctions regulations in their jurisdiction. Where legally required, additional disclosures, acknowledgments, or access limitations may be applied at the interface level without altering the non-custodial operation of the underlying protocol.
+
 ---
 
 ### 21.8 Design Intent
@@ -2040,6 +2055,17 @@ Restricted interface modes do not:
 - Change the non-custodial nature of user vaults
 
 The availability of restricted interface modes reflects compliance flexibility and does not imply that unrestricted protocol operation constitutes regulated activity in all jurisdictions.
+
+
+### 21.10.1 GENIUS Act Alignment and Stablecoin Framework Considerations
+
+YieldLoop’s LOOP token is designed as a fully backed settlement receipt redeemable 1:1 for verified surplus value generated from completed execution cycles. LOOP is minted only after surplus has been realized, verified, and settled, and is immediately redeemable for underlying backing held within the protocol’s settlement infrastructure.
+
+LOOP is not designed to function as an interest-bearing instrument, does not pay yield to holders, and does not represent a claim on future profits or protocol revenues. LOOP issuance is directly and exclusively tied to verified surplus already generated by user-authorized activity and is not used for capital raising, advance funding, or speculative issuance.
+
+YieldLoop operates on a non-custodial basis, with user funds held in user-controlled smart contract vaults and settlement backing maintained separately to satisfy redemption obligations. This design is intended to align with the principles underlying the GENIUS Act stablecoin framework, including full backing, redeemability, and avoidance of interest or yield payments to holders.
+
+Where required by applicable law or regulatory guidance, YieldLoop may pursue appropriate permitted-issuer status, exemptions, or compliant operational pathways for DeFi-based settlement mechanisms. Users remain responsible for ensuring that their participation in the protocol complies with applicable federal and state stablecoin regulations.
 
 
 ### 21.11 Terminology Clarification
@@ -2246,6 +2272,10 @@ For smaller deposits or gas-sensitive participation, the protocol interface may 
 - The impact of fixed execution costs on smaller positions
 - The potential for flat or negative outcomes due to market conditions or fees
 - That YieldLoop does not optimize outcomes or guarantee profitability
+
+YieldLoop is not intended to operate as a stablecoin issuer under the GENIUS Act or similar regulatory frameworks. LOOP issuance occurs solely as a post-settlement representation of verified surplus generated by user-authorized activity and is not used for capital raising, advance funding, or ongoing issuance of a pegged currency.
+
+LOOP does not pay interest or yield to holders and does not represent a claim on future profits, protocol revenue, or managerial efforts. Any backing associated with LOOP reflects completed settlement outcomes and accounting discipline, not a promise of future value or redemption beyond existing backing at the time of settlement.
 
 These acknowledgments are designed to reinforce informed consent and do not alter protocol execution, settlement mechanics, or user rights.
 
