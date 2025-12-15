@@ -79,7 +79,7 @@ YieldLoop’s architecture, fee model, and token mechanics are intentionally des
 
 At the start of a cycle, a user:
 - Connects a wallet
-- Configures strategies manually or selects AI-guided safe settings
+- Configures strategies manually or selects rules-based safe settings
 - Acknowledges strategy parameters, risk, gas costs, and withdrawal constraints
 - Deposits funds into a user-specific vault
 
@@ -522,6 +522,23 @@ This separation ensures that strategy execution and profit recognition remain st
 YieldLoop allows users to configure yield and trading engines either manually or through an optional guardrail configuration system. Regardless of configuration method, all strategy parameters must be explicitly authorized by the user prior to deposit and are enforced immutably for the duration of each cycle.
 
 The configuration layer determines how engines operate, but it does not alter vault ownership, settlement rules, profit verification logic, or withdrawal constraints.
+
+---
+9.0.1 No Advice, Recommendation, or Suitability Determination
+
+YieldLoop does not provide investment advice, strategy recommendations,
+portfolio construction, or suitability determinations.
+
+Any configuration templates, parameter constraints, or rule sets provided
+by the protocol:
+• Do not assess user circumstances
+• Do not evaluate appropriateness
+• Do not recommend participation
+• Do not optimize outcomes
+• Do not rank strategies by desirability
+
+All configurations represent mechanical execution boundaries only.
+Users remain solely responsible for deciding whether and how to participate.
 
 ---
 
@@ -1328,6 +1345,16 @@ At each cycle boundary, users must actively choose whether to:
 Failure to reauthorize results in no execution.
 No capital is automatically committed beyond the user’s explicit election.
 
+When configuration templates are presented, users must affirmatively
+select and approve all parameters.
+
+No configuration is pre-selected.
+No configuration is applied by default.
+No configuration is labeled as safe, optimal, or preferred.
+
+Failure to select parameters results in no execution.
+
+
 ---
 
 ### 15.1 Wallet Connection
@@ -1347,7 +1374,7 @@ The interface displays current cycle timing, supported engines, and system statu
 
 The user is presented with available yield and trading engines and may either:
 - Configure engines manually, or
-- Select AI-guided safe configuration
+- Select Rules-based parameter constraint templates
 
 For each selection, the interface displays:
 - Strategy behavior summary
@@ -1473,7 +1500,7 @@ Before depositing funds, users must explicitly acknowledge that:
 - Gas costs reduce net cycle outcomes
 - Gas costs may exceed expectations during periods of network congestion
 
-This acknowledgment is required regardless of whether strategies are manually configured or AI-guided.
+This acknowledgment is required regardless of whether strategies are manually configured or Rules-based parameter constraint templates.
 
 ---
 
@@ -2514,7 +2541,7 @@ The canonical definition of YieldLoop is limited to the sections preceding this 
 **Active Cycle**  
 A calendar-month period during which strategies execute and funds are locked. Cycles begin on the first day of the month and end on the last day of the month.
 
-**AI-Guided Configuration**  
+**Rules-based parameter constraint templates Configuration**  
 A rules-based configuration option that automatically selects conservative, safety-first strategy parameters prior to cycle start. AI does not adjust parameters mid-cycle and does not influence settlement.
 
 **Backing**  
@@ -2582,7 +2609,7 @@ YieldLoop does not promise, market, or imply profit.
 - The protocol does not manage portfolios
 - The protocol does not optimize outcomes
 - The protocol does not intervene to improve results
-- AI-guided configuration is rules-based and static per cycle
+- Rules-based parameter constraint templates configuration is rules-based and static per cycle
 
 All strategy execution occurs strictly according to parameters authorized by the user prior to cycle start. Users are not relying on the discretionary efforts of YieldLoop operators, developers, or administrators to generate profit.
 
@@ -2750,11 +2777,11 @@ All strategy parameters are explicitly authorized by the user prior to cycle ini
 
 ---
 
-## 26.2 AI-Guided Configuration Does Not Create Managerial Reliance
+## 26.2 Rules-based parameter constraint templates Configuration Does Not Create Managerial Reliance
 
 Any references to “AI” within YieldLoop refer strictly to **pre-cycle, rules-based configuration assistance**.
 
-AI-guided configuration:
+Rules-based parameter constraint templates configuration:
 - Operates only before a cycle begins
 - Selects parameters from predefined, governance-approved rule sets
 - Does not predict markets
@@ -2762,7 +2789,7 @@ AI-guided configuration:
 - Does not adapt or reconfigure mid-cycle
 - Does not influence settlement outcomes
 
-AI components exist solely to reduce user configuration complexity. They do not introduce discretion, managerial control, or outcome dependency. Users explicitly authorize AI-guided configuration and retain full responsibility for its use.
+AI components exist solely to reduce user configuration complexity. They do not introduce discretion, managerial control, or outcome dependency. Users explicitly authorize Rules-based parameter constraint templates configuration and retain full responsibility for its use.
 
 ---
 
