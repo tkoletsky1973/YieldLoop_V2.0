@@ -52,7 +52,7 @@ By issuing rewards exclusively through a fully backed settlement token, YieldLoo
 
 This approach enables:
 - Transparent performance reporting
-- A defensible rising floor mechanism
+- A defensible non-eroding floor mechanism
 - Reduced incentive for manipulation or short-term gaming
 - A yield system that remains coherent across varying market conditions
 
