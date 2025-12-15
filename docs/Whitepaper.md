@@ -7,40 +7,6 @@
 **Contact:** founder@yieldloop.io
 
 
-## Table of Contents
-
-1. Abstract  
-2. Problem Statement  
-3. What YieldLoop Solves  
-
-4. Overview  
-5. Design Principles  
-6. System Architecture  
-7. Non-Custodial Vault Model  
-
-8. Yield & Trading Engines  
-9. Engine Configuration, Controls & AI Operation  
-
-10. Cycle-Based Execution Model  
-11. Profit Verification & Settlement Logic  
-12. LOOP Token Mechanics  
-
-13. Fee Structure & Allocation  
-14. Floor Reinforcement & Liquidity Design  
-
-15. User Flow & UX States  
-16. Gas Fees & Cost Responsibility  
-17. Withdrawals, Compounding & Account Closure  
-
-18. Emergency Controls & Fail-Safe Logic  
-19. Security, Auditing & Risk Disclosures  
-20. Governance, Admin Controls & Limitations  
-21. Regulatory & Classification Posture  
-
-22. Limitations & Known Constraints  
-23. Future Extensions (Non-Canonical)  
-24. Glossary
-
 
 ## 1. Abstract
 
@@ -2001,6 +1967,62 @@ Within this document and associated materials:
 All references to yield or profit are conditional, retrospective, and subject to execution costs, losses, and verification outcomes. Any use of yield-related terminology should be understood as descriptive of accounting results, not as marketing claims or financial assurances.
 
 
+### 21.12 NFT Program Classification and Limitations
+
+YieldLoop offers optional NFT-based participation programs as described in Section 8. These programs are designed as access, membership, and engagement tools and are not integral to protocol operation.
+
+NFTs issued by YieldLoop:
+- Are not required to access protocol functionality
+- Do not confer ownership, equity, or governance authority
+- Do not represent claims on protocol revenue or assets
+- Do not entitle holders to profit sharing or passive income
+- Do not affect execution, verification, or settlement mechanics
+
+Any benefits associated with NFTs are limited to access, fee discounts, or discretionary participation opportunities and are not dependent on protocol performance.
+
+---
+
+### Founder NFT Participation and Engagement Rewards
+
+Founder NFTs are intended for contributors who provide feedback, testing, or strategic input during early development phases.
+
+Participation in engagement-based reward programs:
+- Is optional and activity-based
+- Requires demonstrated contribution
+- Is not guaranteed
+- Is funded exclusively from the marketing budget
+- Is not derived from protocol fees, profits, or settlement surplus
+- Does not scale automatically with protocol performance
+
+Founder NFTs do not entitle holders to compensation, employment, advisory roles, or ongoing economic benefit.
+
+---
+
+### Supporter NFTs and Promotional Minting
+
+Supporter NFTs function as optional membership tokens and may be minted by the YieldLoop team for community recognition, partnerships, or outreach.
+
+Supporter NFTs minted for promotional purposes:
+- Provide identical utility to publicly minted Supporter NFTs
+- Do not constitute compensation for services
+- Do not represent investment consideration
+- Do not alter protocol economics
+
+---
+
+### Referral Program Safeguards
+
+Referral rewards described in Section 8 are marketing incentives and not investment returns.
+
+Referral safeguards include:
+- Single-tier referral structure only
+- Time-limited reward duration
+- Rewards paid exclusively from verified profit
+- No rewards on deposits, principal, or losses
+- No requirement to recruit in order to participate
+
+Referral participation does not create an agency, partnership, or advisory relationship between users and YieldLoop.
+
 ## 22. Limitations & Known Constraints
 
 YieldLoop is intentionally designed with constraints that prioritize verification, safety, and determinism over flexibility or convenience. These limitations are not incidental; they are fundamental to the protocol’s operating model.
@@ -2611,3 +2633,117 @@ YieldLoop is intentionally conservative by design. It prioritizes:
 - Transparency over optimization narratives
 
 These choices are deliberate and define the protocol’s identity.
+
+
+# Section 27 — NFT Program & Referral Incentives
+
+YieldLoop offers optional NFT-based participation programs and referral incentives designed to support community engagement, early feedback, and user-driven growth. Participation in these programs is not required to access or use the YieldLoop protocol.
+
+NFTs and referral incentives are ancillary to the protocol and do not affect execution, verification, settlement mechanics, or user vault behavior.
+
+---
+
+## 27.1 Supporter NFTs
+
+Supporter NFTs are optional membership tokens intended to recognize supporters of the YieldLoop ecosystem and provide limited, predefined utility.
+
+**Supporter NFT Characteristics:**
+- Price: $300
+- Supply: Unlimited
+- Transferability: Permitted
+- Expiration: None
+
+**Supporter NFT Benefits:**
+- Access to a private Supporter Discord channel
+- A **5% lifetime discount** on YieldLoop platform performance fees
+
+Supporter NFTs do not provide:
+- Ownership, equity, or governance rights
+- Revenue sharing or profit participation
+- Preferential execution, settlement, or redemption treatment
+- Guaranteed economic benefit beyond disclosed fee discounts
+
+### Supporter NFT Promotional Minting
+
+The YieldLoop team may mint Supporter NFTs at its discretion for purposes including:
+- Community recognition and rewards
+- Partnerships and collaborations
+- Promotional or educational initiatives
+- Publicity or outreach campaigns
+
+Supporter NFTs minted for promotional purposes provide the same limited utility as publicly minted Supporter NFTs and do not constitute compensation for services or consideration for investment.
+
+---
+
+## 27.2 Founder NFTs
+
+Founder NFTs are limited-participation tokens intended for individuals who contribute feedback, testing, and strategic input during early development phases of the YieldLoop protocol.
+
+**Founder NFT Characteristics:**
+- Price: $2,000
+- Supply: 300 total
+- Transferability: Permitted
+- Expiration: None
+
+**Founder NFT Benefits:**
+- Access to a private Founder Discord channel
+- Invitations to structured focus groups, design reviews, and feedback sessions
+- Eligibility to participate in contribution-based engagement reward programs
+- A **10% lifetime discount** on YieldLoop platform performance fees
+
+Founder NFTs do not confer:
+- Ownership or equity interests
+- Governance authority
+- Automatic compensation or profit entitlement
+- Preferential protocol economics or execution outcomes beyond disclosed fee discounts
+
+---
+
+## 27.3 Engagement-Based Marketing Rewards
+
+YieldLoop may allocate a portion of its marketing budget to reward meaningful community participation and contribution.
+
+**Engagement Reward Program Parameters:**
+- Up to 0.25% of the marketing budget may be allocated to an engagement reward pool
+- Rewards are discretionary and based on demonstrated participation, such as:
+  - Product feedback
+  - Testing and bug reporting
+  - Educational contributions
+  - Outreach or promotional assistance
+- Rewards are not guaranteed and are not distributed automatically
+- Rewards are funded exclusively from the marketing budget, not from protocol fees, user deposits, or settlement surplus
+
+Eligibility for engagement rewards requires active contribution and does not arise solely from NFT ownership.
+
+---
+
+## 27.4 Referral Program
+
+YieldLoop may offer a referral program as a marketing incentive to encourage organic user growth.
+
+**Referral Program Structure:**
+- Users receive a referral code after completing their first deposit
+- Referrers may earn up to **5% of verified profit** generated by referred users
+- Referral rewards apply for up to **6 completed cycles** per referred user
+- Referral rewards are paid only when verified profit exists
+- No rewards are paid on deposits, principal, or flat cycles
+
+Referral rewards:
+- Are single-tier only
+- Do not compound or cascade
+- Do not require recruitment to participate in the protocol
+- Are paid as marketing incentives, not investment returns
+
+---
+
+## 27.5 Disclosures and Limitations
+
+NFT participation and referral incentives:
+- Are optional and not required for protocol access
+- Do not affect strategy execution or settlement outcomes
+- Do not alter protocol risk characteristics
+- Do not create employment, advisory, partnership, or agency relationships
+
+YieldLoop does not market NFTs or referral participation as investment opportunities and makes no representations regarding resale value or future economic benefit.
+
+
