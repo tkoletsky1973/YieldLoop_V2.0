@@ -87,7 +87,7 @@ Once the cycle begins, funds are locked until cycle completion. Strategies execu
 
 At the end of the cycle, the protocol verifies whether real profit exists by comparing the vault’s ending value to its starting value. If profit exists, a performance fee is applied and the remaining surplus is settled to the user as LOOP. If no profit exists, the cycle closes with no rewards and no fees.
 
-LOOP may be redeemed immediately upon claim through the platform’s redemption mechanism, which is designed to maintain excess backing at all times. Protocol-owned liquidity and floor reinforcement mechanisms ensure that the redemption floor can only remain stable or rise over time.
+LOOP may be redeemed immediately upon claim through the platform’s redemption mechanism, which is designed to maintain excess backing at all times. Protocol-owned liquidity and floor reinforcement mechanisms ensure that The protocol maintains a non-eroding redemption floor based solely on verified settlement outcomes and available backing. The redemption floor reflects completed accounting results and may remain unchanged for extended periods depending on execution performance and market conditions.
 
 YieldLoop does not custody user funds, does not guarantee returns, and does not recognize profit that cannot be verified. Its sole function is to execute strategies, verify outcomes, and settle results with precision.
 
@@ -432,6 +432,10 @@ Stablecoin-based strategies utilized within YieldLoop are selected and configure
 These strategies are execution-based and non-advisory in nature. Outcomes are not guaranteed and may result in zero verified profit for a given cycle due to market conditions, liquidity constraints, execution costs, counterparty risk, or external protocol behavior.
 
 Participation in stablecoin strategies does not constitute interest-bearing activity, lending, or yield-bearing issuance by YieldLoop. All results are contingent on completed execution and post-cycle verification.
+
+Stablecoin strategies utilized by YieldLoop are limited to assets intended to comply with applicable federal stablecoin frameworks, including asset quality and reserve principles reflected in the GENIUS Act. However, such strategies remain subject to market, liquidity, counterparty, regulatory, and protocol-level risks.
+
+Users bear all risks associated with stablecoin participation, including but not limited to potential depegging events, loss of liquidity, changes in regulatory treatment, smart contract failures, or actions taken by third-party issuers or platforms. YieldLoop does not guarantee outcomes, continuity of asset classification, or the availability of any specific stablecoin strategy.
 
 ---
 
@@ -1957,6 +1961,8 @@ Key distinctions include:
 
 LOOP’s backing reflects completed accounting outcomes and does not constitute a promise of price stability, market value maintenance, or future redemption beyond existing backing at the time of settlement.
 
+LOOP differs materially from stablecoins and payment tokens in that it does not maintain a fixed peg, is not intended for payments, remittances, or general value storage, and is issued only after the completion of a defined execution cycle. LOOP exists solely as a post-cycle settlement receipt representing verified surplus and is not designed to circulate as a medium of exchange.
+
 ---
 
 ### 21.4 User Control & Authorization
@@ -2012,6 +2018,10 @@ YieldLoop implements application-layer compliance controls where required, inclu
 
 YieldLoop does not perform custodial identity verification by default; however, users are responsible for ensuring their participation complies with applicable AML, KYC, and sanctions regulations in their jurisdiction. Where legally required, additional disclosures, acknowledgments, or access limitations may be applied at the interface level without altering the non-custodial operation of the underlying protocol.
 
+In addition to sanctions screening, YieldLoop may implement tiered access controls or identity verification measures for higher-volume participation, elevated risk profiles, or jurisdictions where such measures are required by law or regulatory guidance. Any such measures would be applied at the interface or access layer and would not alter the non-custodial, rule-based operation of the underlying protocol.
+
+The scope, thresholds, and applicability of any enhanced AML or KYC measures may evolve in response to legal requirements, regulatory expectations, or risk assessments and do not imply that unrestricted protocol usage constitutes regulated activity in all jurisdictions.
+
 ---
 
 ### 21.8 Design Intent
@@ -2066,6 +2076,10 @@ LOOP is not designed to function as an interest-bearing instrument, does not pay
 YieldLoop operates on a non-custodial basis, with user funds held in user-controlled smart contract vaults and settlement backing maintained separately to satisfy redemption obligations. This design is intended to align with the principles underlying the GENIUS Act stablecoin framework, including full backing, redeemability, and avoidance of interest or yield payments to holders.
 
 Where required by applicable law or regulatory guidance, YieldLoop may pursue appropriate permitted-issuer status, exemptions, or compliant operational pathways for DeFi-based settlement mechanisms. Users remain responsible for ensuring that their participation in the protocol complies with applicable federal and state stablecoin regulations.
+
+To demonstrate backing discipline and transparency, YieldLoop intends to engage periodic independent third-party attestations or audits of settlement backing and reserve accounting, subject to availability and regulatory guidance.
+
+No interest, yield, or return is paid or distributed to LOOP holders. LOOP exists solely as a post-settlement representation of verified surplus and is not designed or marketed as an interest-bearing or yield-generating instrument.
 
 
 ### 21.11 Terminology Clarification
@@ -2244,6 +2258,8 @@ Users are responsible for:
 - Monitoring participation windows
 
 YieldLoop does not assume responsibility for user decision-making.
+
+LOOP is not intended for use as a payment instrument, savings vehicle, or store of value. It is not marketed or supported for transactional use outside the YieldLoop settlement process. LOOP issuance occurs only after cycle completion and reflects settled accounting outcomes, not an ongoing pegged or circulating currency.
 
 ---
 
