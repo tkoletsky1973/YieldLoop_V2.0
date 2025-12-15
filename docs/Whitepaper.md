@@ -860,6 +860,22 @@ Any increase in the redemption floor results solely from realized surplus that h
 
 ---
 
+### 12.5.1 Floor Interpretation Limitation
+
+The LOOP redemption floor is an accounting representation of available backing at the time of redemption and is not a promise, target, or guarantee of future value.
+
+References to a non-decreasing floor reflect settlement discipline and surplus accounting mechanics only. They do not imply that the protocol engineers appreciation, targets price outcomes, or ensures economic gain.
+
+The redemption floor:
+- Is not managed to increase in value
+- Does not represent expected profit
+- Does not constitute a yield promise or investment return
+- May remain static for extended periods
+- Is subject to smart contract risk, execution failure, market conditions, and external system disruption
+
+Any perception of value increase results solely from independently realized surplus that has already occurred and been fully settled. No value is projected, implied, or assumed prior to settlement finality.
+
+---
 ### 12.6 Transferability & Scope
 
 LOOP is minted and redeemed exclusively through the YieldLoop platform.
@@ -1035,6 +1051,21 @@ Specifically:
 - Redeployment applies exclusively to protocol-owned assets in excess of required settlement and redemption thresholds
 
 Overcollateralization redeployment is a post-settlement, system-level capital efficiency mechanism and does not involve user funds, user rewards, or assets required to satisfy redemption guarantees.
+
+### 14A.0.1 Redeployment Exposure Limits and Controls
+
+Any system-level redeployment of overcollateralization is subject to explicit exposure limits and safety controls.
+
+Redeployment constraints include:
+- Redeployment may apply only to protocol-owned assets in excess of all user settlement and LOOP redemption backing requirements
+- Redeployment exposure is capped at a fixed maximum percentage of excess backing, as defined by governance parameters
+- Redeployment may be fully disabled by governance without affecting user settlement or redemption rights
+- No redeployment may occur during an active execution cycle
+- No redeployment may increase leverage or introduce cross-collateral dependencies
+
+Redeployment logic is deterministic and subject to audit. Its purpose is limited to operational efficiency and capital preservation, not profit maximization.
+
+Failure or underperformance of redeployed assets does not impair user principal, user settlement outcomes, or minimum redemption backing.
 
 ### 14A.1 Purpose
 
@@ -1553,6 +1584,34 @@ Emergency controls are intentionally minimal to:
 
 YieldLoop is designed to fail safely, not gracefully.
 
+---
+
+### 18.10 Emergency Authority Scope and Sunset Limits
+
+Emergency controls exist solely to preserve system integrity, prevent cascading failure, and protect user access to settlement and redemption.
+
+Emergency authority is explicitly limited in scope:
+
+- Emergency actions may pause execution, settlement, or deposits
+- Emergency actions may not seize user assets
+- Emergency actions may not reallocate user funds
+- Emergency actions may not mint, burn, or modify LOOP balances
+- Emergency actions may not alter user configuration parameters
+- Emergency actions may not confer economic advantage to administrators or governance participants
+
+Emergency states are temporary by design.
+
+- Each emergency action is subject to a predefined maximum duration
+- Emergency states automatically expire unless explicitly renewed through transparent governance procedures
+- All emergency actions are logged and publicly auditable
+
+When an emergency state concludes:
+- Execution resumes only through standard protocol rules
+- Any affected cycles default to flat closure where applicable
+- User access to settlement and redemption is preserved
+
+Emergency authority is a safety mechanism, not a control mechanism, and does not introduce discretionary asset management or custodial behavior.
+
 
 ## 19. Security, Auditing & Risk Disclosures
 
@@ -1908,6 +1967,39 @@ If risk exists, it is not hidden.
 
 Users are expected to engage with the protocol with informed consent.
 
+### 21.10 Regulatory Pathways and Restricted Interface Modes
+
+YieldLoop is designed to operate as non-custodial settlement infrastructure across multiple regulatory environments.
+
+Where required by applicable law or regulatory guidance, YieldLoop may offer restricted interface modes that limit or modify user access without altering the neutrality or determinism of the underlying protocol.
+
+Such restricted interface modes may include, where applicable:
+- Jurisdiction-based access limitations at the application layer
+- Sanctions screening consistent with Office of Foreign Assets Control (OFAC) requirements
+- Transaction size limits or feature restrictions
+- Additional user acknowledgments or disclosures
+- Optional identity verification for higher-risk or higher-value participation tiers
+
+Restricted interface modes do not:
+- Convert the protocol into a custodian
+- Introduce discretionary asset management
+- Alter execution, verification, or settlement mechanics
+- Change the non-custodial nature of user vaults
+
+The availability of restricted interface modes reflects compliance flexibility and does not imply that unrestricted protocol operation constitutes regulated activity in all jurisdictions.
+
+
+### 21.11 Terminology Clarification
+
+For clarity, YieldLoop uses the term “yield” descriptively to reference realized outcomes of execution, not as a promise, projection, or expectation of return.
+
+Within this document and associated materials:
+- “Yield” does not imply predicted performance, guaranteed returns, or continuous accrual
+- “Profit” refers only to surplus verified after execution concludes and settlement finality is reached
+- No yield, profit, or value is assumed, estimated, or recognized prior to settlement
+
+All references to yield or profit are conditional, retrospective, and subject to execution costs, losses, and verification outcomes. Any use of yield-related terminology should be understood as descriptive of accounting results, not as marketing claims or financial assurances.
+
 
 ## 22. Limitations & Known Constraints
 
@@ -2028,6 +2120,27 @@ YieldLoop intentionally trades:
 - Hype for verifiable outcomes
 
 These tradeoffs define the protocol’s identity.
+
+
+### 22.11 Consumer Safeguards and Participation Acknowledgments
+
+YieldLoop is designed to prioritize transparency, determinism, and informed participation.
+
+Prior to deposit, users are explicitly informed that:
+- Capital is committed for the full duration of each cycle
+- No mid-cycle withdrawals or parameter changes are permitted
+- Execution costs and gas fees may exceed returns
+- Cycles may close with zero verified profit
+- Settlement outcomes are final once verification concludes
+
+For smaller deposits or gas-sensitive participation, the protocol interface may present additional acknowledgments to ensure users understand:
+- The impact of fixed execution costs on smaller positions
+- The potential for flat or negative outcomes due to market conditions or fees
+- That YieldLoop does not optimize outcomes or guarantee profitability
+
+These acknowledgments are designed to reinforce informed consent and do not alter protocol execution, settlement mechanics, or user rights.
+
+YieldLoop does not restrict participation based on deposit size but emphasizes user understanding and responsibility for configuration choices and outcomes.
 
 
 ## 23. Future Extensions (Non-Canonical)
