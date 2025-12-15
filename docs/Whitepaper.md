@@ -2880,3 +2880,108 @@ NFT participation and referral incentives:
 YieldLoop does not market NFTs or referral participation as investment opportunities and makes no representations regarding resale value or future economic benefit.
 
 
+# Regulatory compliance addendum
+## Purpose and scope
+
+This addendum formalizes YieldLoop’s regulatory posture, classification analysis, user-protection controls, and compliance alignment across commonly applied global frameworks. It does not modify canonical protocol rules; it clarifies design intent, operating boundaries, and disclosure disciplines to preempt regulatory ambiguity and consumer-protection concerns.
+
+---
+
+## LOOP classification and Howey analysis
+
+### Determination: LOOP is a post-settlement accounting instrument, not a security
+
+- **Instrument nature:** LOOP is minted only after a completed cycle produces verified net surplus and functions solely as an internal settlement receipt redeemable against existing backing. It carries no governance, no rights to future profits, no emissions schedule, and no interest or yield accrual.
+- **Issuance trigger:** **Post-settlement only.** LOOP is created deterministically after profit verification and fee application; no pre-minting or prospective issuance occurs.
+- **Use of proceeds:** No capital raising, no advance funding, and no reliance on managerial efforts to produce future returns.
+
+### Howey prong analysis (U.S. investment contract test)
+
+- **Prong 1 — Investment of money:** Users deposit funds into non-custodial vaults. This prong is met functionally for protocol participation.
+- **Prong 2 — Common enterprise:** **Fail:** User vaults are account-segmented, outcomes are isolated, and funds are not pooled. Protocol mechanics prevent cross-user risk sharing or commingling of returns.
+- **Prong 3 — Expectation of profit:** **Fail:** LOOP is not acquired with an expectation of future profit; it is issued solely as a receipt for already verified surplus. Documentation, interface states, and disclosures explicitly disclaim any promise, projection, or expectation of profit.
+- **Prong 4 — Efforts of others:** **Fail:** Execution is rule-based and static per cycle. No discretionary management, outcome optimization, or mid-cycle intervention occurs. Users authorize parameters; AI guardrails are pre-cycle, rules-based filters—not predictive advisors.
+
+### Classification conclusion
+
+- **Result:** LOOP does not meet the definition of an investment contract under Howey. It is a post-settlement, backed accounting instrument used to finalize cycle outcomes. YieldLoop operates as non-custodial execution and settlement infrastructure, not as an investment product, asset manager, or issuer of yield-bearing instruments.
+
+---
+
+## User protection and flat-cycle safeguards
+
+### Flat cycle treatment
+
+- **Definition:** A flat cycle is one with no verified profit after netting execution costs, slippage, and gas.
+- **User impact:** **No rewards and no performance fees.** Principal remains in the user’s non-custodial vault and is accessible at cycle end (or under emergency halts).
+- **Disclosure discipline:** **Pre-deposit acknowledgments** and interface states explicitly inform users that cycles may close flat for extended periods and that profit is never recognized mid-cycle.
+
+### Protection mechanisms
+
+- **Non-custodial vaults:** **Ownership:** User-controlled smart contract vaults; funds are not pooled or seized.  
+- **Immutable cycles:** **Integrity:** Mid-cycle withdrawals and parameter changes are disabled to prevent manipulation and ensure deterministic accounting.  
+- **Emergency fail-safes:** **Capital-first:** Execution halts, positions unwind to base assets, cycles close flat, and users regain withdrawal access—no rewards, no fees.  
+- **Auditability:** **Verification:** Profit determination is reproducible from on-chain data; independent auditors can validate settlement outcomes.
+
+---
+
+## Misconfiguration and AI guardrail responsibility
+
+### Responsibility model
+
+- **User authorization:** **Explicit consent:** Users approve engines, parameters, gas responsibility, and locked-cycle constraints via verifiable signatures.  
+- **AI guardrails:** **Rules-based filters:** Operate only pre-cycle; select from governance-approved conservative parameter sets; do not predict markets, optimize outcomes, or reconfigure mid-cycle.  
+- **Non-advisory posture:** **No fiduciary duty:** Guardrails reduce configuration complexity without creating managerial reliance or personalized advice.
+
+### Safety controls
+
+- **Parameter immutability:** **No mid-cycle changes** by users, admins, or AI systems.  
+- **Execution halts:** **Conservative defaults** if a configuration cannot operate safely; capital remains idle or reverts to base assets within the vault.  
+- **Disclosure:** **Clear risk statements** that users bear configuration risk, including guardrail selection, gas sensitivity, and market conditions.
+
+---
+
+## Global compliance alignment
+
+### U.S. securities law (SEC / Howey)
+
+- **Non-security posture:** LOOP fails Howey prongs for common enterprise, expectation of profit, and reliance on managerial efforts.  
+- **Disclosure and conduct:** No marketing of returns; no projections; performance fees only on verified profit; deterministic settlement; no discretionary management.
+
+### EU Markets in Crypto-Assets (MiCA)
+
+- **Token classification:** LOOP is a **settlement utility instrument** tied to post-cycle outcomes, not an e-money token or asset-referenced token.  
+- **Operational posture:** No claim to price stability, no payment function, no interest to holders; backing reflects completed settlement only.  
+- **Transparency:** Clear disclosures, risk statements, auditability of issuance and redemption.
+
+### U.S. GENIUS Act alignment (stablecoin frameworks)
+
+- **Non-stablecoin status:** LOOP is not pegged, not intended for payments, and is minted exclusively post-surplus.  
+- **Stablecoin strategies:** When strategies utilize stablecoins, YieldLoop aligns with **asset quality, reserve, and liquidity principles**; no interest is paid to LOOP holders; settlement backing is attested periodically where feasible.
+
+### Consumer protection
+
+- **Informed consent:** **Mandatory pre-deposit acknowledgments** covering locked cycles, zero-profit risk, gas costs, and finality of settlement outcomes.  
+- **Truthful communication:** No APY projections; no implied guarantees; flat cycles framed as valid outcomes.  
+- **Access and transparency:** Deterministic interfaces reflecting state transitions; on-chain observability of fees, issuance, and redemption.
+
+### AML/KYC and sanctions
+
+- **Interface-level controls:** **OFAC-aligned sanctions screening**; tiered access or KYC for higher-risk/value tiers where required; non-custodial protocol neutrality preserved.  
+- **Jurisdictional variance:** Users are responsible for local compliance; restricted interface modes may apply without altering underlying protocol determinism.
+
+---
+
+## Compliance commitments and implementation
+
+- **Audit and attestations:** Independent third-party audits of core contracts; periodic attestations of settlement backing and reserve accounting where applicable.  
+- **Governance constraints:** Parameter changes only between cycles; no mid-cycle overrides; multisig and time delays on administrative actions; transparent on-chain records.  
+- **Emergency authority limits:** Capital preservation only; no asset seizure; no mint/burn outside verified settlement; sunset limits and public logs for emergency states.  
+- **Marketing standards:** Settlement-first framing; prohibition of performance projections; consistent plain-language risk disclosures across interfaces and materials.
+
+---
+
+## Statement of intent
+
+YieldLoop is deliberately conservative: it favors verifiable outcomes over projections, capital integrity over flexibility, and determinism over discretion. LOOP is a post-settlement receipt, not an investment instrument. Users interact with non-custodial infrastructure under explicit constraints and comprehensive disclosures. Compliance alignment is implemented at the interface and governance layers without compromising protocol neutrality or user ownership.
+
