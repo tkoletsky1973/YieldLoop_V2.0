@@ -10,9 +10,9 @@
 
 ## 1. Abstract
 
-YieldLoop is a non-custodial, cycle-based yield settlement protocol designed to execute trading and yield strategies, verify real profit, and convert verified surplus into a fully backed internal settlement token.
+YieldLoop is a non-custodial, cycle-based settlement protocol designed to execute trading and active strategies, verify real profit, and convert verified surplus into a fully backed internal settlement token.
 
-Unlike traditional DeFi platforms that rely on projected APYs, emissions, or continuously updating balances, YieldLoop operates in fixed calendar-month cycles. Each cycle produces only one of two outcomes: verified profit or zero profit. Profit is recognized only if the ending value of a user’s vault exceeds its starting value after all execution costs, fees, and slippage are accounted for.
+Unlike traditional DeFi platforms that rely on projected APYs, emissions, or continuously updating balances, YieldLoop operates in fixed calendar-month cycles. Each cycle produces only one of two outcomes: verified profit or zero profit. Profit is recognized only if the ending value of a user’s vault exceeds its starting value after all friction is accounted for.
 
 When profit exists, it is settled at the end of the cycle and distributed to users in the form of LOOP, a platform-native settlement token that is minted only after profit is verified and is immediately redeemable for underlying value. When no profit exists, no rewards are issued and no performance fees are taken.
 
@@ -92,6 +92,25 @@ LOOP may be redeemed immediately upon claim through the platform’s redemption 
 YieldLoop does not custody user funds, does not guarantee returns, and does not recognize profit that cannot be verified. Its sole function is to execute strategies, verify outcomes, and settle results with precision.
 
 
+4.1 No Expectation of Profit or Return
+
+YieldLoop is not designed, marketed, or intended to create an expectation of profit,
+return, or appreciation.
+
+Participation in a YieldLoop execution cycle does not entitle a user to:
+• Any positive outcome
+• Any minimum return
+• Any distribution
+• Any carry-forward of losses or gains
+
+Each execution cycle is economically independent and may result in zero surplus.
+Users participate with the understanding that execution outcomes are contingent,
+retrospective, and may produce no economic benefit.
+
+YieldLoop does not represent that participation is profitable, advantageous, or
+economically favorable relative to non-participation.
+
+---
 ## 5. Design Principles
 
 YieldLoop is built around a small set of non-negotiable design principles that govern every architectural, economic, and operational decision in the protocol. These principles exist to eliminate ambiguity, reduce systemic risk, and ensure that all reported outcomes correspond to verifiable reality.
@@ -263,6 +282,27 @@ This separation ensures that YieldLoop remains auditable, resilient to failure, 
 YieldLoop is built on a strictly non-custodial vault architecture. User funds are never held, pooled, or controlled by the protocol or its operators. Instead, each deposit is placed into an account-segmented smart contract vault that enforces ownership, execution rules, and withdrawal constraints at the contract level.
 
 This model is foundational to YieldLoop’s security, legal posture, and accounting integrity.
+
+---
+
+7.0.1 Execution Authorization and Time-Bound Control
+
+YieldLoop does not assume custody of user assets in the traditional or legal sense.
+However, during an active execution cycle, users grant the protocol limited,
+time-bound execution authority over their vault for the sole purpose of executing
+pre-authorized strategy logic.
+
+This authorization:
+• Is explicitly granted by the user prior to deposit
+• Is limited in scope to execution functions defined at cycle start
+• Does not transfer ownership or discretionary control
+• Automatically expires at cycle completion or emergency halt
+
+Temporary withdrawal unavailability during a cycle is a function of execution
+finality and accounting integrity, not custodial control.
+
+At no time does YieldLoop obtain unilateral authority to transfer, repurpose,
+or seize user assets.
 
 ---
 
@@ -568,6 +608,18 @@ YieldLoop operates exclusively on fixed calendar-month execution cycles. Each cy
 
 This model eliminates continuous revaluation, mid-cycle interference, and ambiguous profit reporting.
 
+Each execution cycle is a closed, non-continuous event.
+
+Cycles do not:
+• Accumulate entitlement
+• Create rolling expectations
+• Establish continuity of returns
+• Form part of an ongoing investment program
+
+No cycle outcome influences entitlement or expectation in any subsequent cycle.
+Participation in one cycle confers no rights, assumptions, or expectations regarding
+future cycles.
+
 ---
 
 ### 10.1 Cycle Initiation
@@ -775,6 +827,33 @@ LOOP is the internal settlement token of the YieldLoop protocol. It is designed 
 
 LOOP exists solely to settle verified outcomes and reinforce protocol solvency.
 
+References to backing thresholds are descriptive of accounting availability
+at a specific point in time and do not imply durability, permanence, or
+future availability.
+
+Backing levels may increase, remain static, or decrease depending on
+settlement outcomes, redemption demand, or system events.
+
+---
+
+12.0.1 LOOP as an Accounting Unit
+
+LOOP is not a currency, payment instrument, deposit, or store of value.
+
+LOOP functions exclusively as an internal accounting unit used to represent
+net surplus that has already been realized, verified, and settled at the
+conclusion of an execution cycle.
+
+LOOP:
+• Is not issued in advance
+• Is not used for payments or remittances
+• Is not intended for circulation
+• Is not marketed as a savings or value preservation instrument
+• Does not function as a unit of account outside the protocol
+
+Any redemption of LOOP reflects the release of previously settled surplus,
+not a promise of future availability or monetary stability.
+
 ---
 
 ### 12.1 Purpose of LOOP
@@ -824,6 +903,17 @@ Redemption process:
 - Underlying value is released from the redemption vault
 
 Redemption does not rely on secondary market liquidity and does not require waiting periods.
+
+Redemption of LOOP is contingent on the availability of settled backing at
+the time a redemption request is processed.
+
+Redemption does not:
+• Create a deposit obligation
+• Guarantee immediate liquidity under all conditions
+• Represent a standing issuer promise
+• Imply parity with a reference asset
+
+LOOP redemption reflects accounting settlement, not payment processing.
 
 ---
 
@@ -1103,6 +1193,24 @@ These mechanisms operate only through deterministic, rule-based processes and ap
 
 Floor reinforcement reflects settlement discipline and surplus routing, not price support or financial guarantees.
 
+14.0.1 No Capital Protection or Downside Limitation
+
+YieldLoop does not provide capital protection, principal preservation,
+downside limitation, or loss mitigation.
+
+Any references to backing, thresholds, or minimum levels reflect
+accounting states derived from completed settlements and do not:
+
+• Protect user principal
+• Limit losses
+• Guarantee redemption outcomes
+• Prevent reduction in available backing
+• Ensure continuity across cycles
+
+Users may experience loss of principal, loss of surplus, or inability
+to redeem accounting units due to market conditions, execution failure,
+or system-wide events.
+
 ---
 
 ### 14A. Overcollateralization Management
@@ -1208,6 +1316,17 @@ This ensures that overcollateralization management never introduces new systemic
 YieldLoop is designed to present a clear, deterministic user experience that mirrors the protocol’s underlying execution and settlement logic. User actions are constrained to defined states to prevent ambiguity, accidental misuse, or misinterpretation of results.
 
 The user interface reflects system state rather than attempting to smooth or abstract it.
+
+Users are not passive participants.
+
+At each cycle boundary, users must actively choose whether to:
+• Withdraw
+• Re-authorize execution
+• Reconfigure strategies
+• Decline further participation
+
+Failure to reauthorize results in no execution.
+No capital is automatically committed beyond the user’s explicit election.
 
 ---
 
@@ -1946,7 +2065,14 @@ YieldLoop reports outcomes; it does not manufacture them.
 
 ---
 
-### 21.3 LOOP Token Classification and Non-Stablecoin Status
+### 21.3 LOOP Accounting Unit Classification and Scope Limitations
+
+LOOP is not designed to operate within stablecoin regulatory frameworks,
+as it does not perform the economic function of a stable-value currency,
+deposit substitute, or transactional medium.
+
+References to federal stablecoin frameworks are included solely to clarify
+distinctions, not to assert classification equivalence or regulatory parity.
 
 LOOP is a settlement token issued solely to represent verified surplus that has already been realized, measured, and settled at the conclusion of an execution cycle.
 
